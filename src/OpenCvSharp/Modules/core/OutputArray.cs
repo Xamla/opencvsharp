@@ -185,6 +185,7 @@ namespace OpenCvSharp
         {
             AssignResult();
             Dispose();
+            Console.WriteLine("Dispose object");
         }
 
         /// <summary>

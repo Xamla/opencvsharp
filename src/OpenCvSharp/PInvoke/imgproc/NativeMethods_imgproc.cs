@@ -150,7 +150,7 @@ namespace OpenCvSharp
         public static extern double imgproc_threshold(IntPtr src, IntPtr dst, double thresh, double maxval, int type);
         [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void imgproc_adaptiveThreshold(IntPtr src, IntPtr dst,
-            double maxValue, int adaptiveMethod, int thresholdType, int blockSize, double c);
+            double maxValue, int adaptiveMethod, int thresholdType, int blockSize, double c, IntPtr exception);
         [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void imgproc_pyrDown(IntPtr src, IntPtr dst, Size dstsize, int borderType);
         [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]

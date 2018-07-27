@@ -319,11 +319,21 @@ CVAPI(double) imgproc_threshold(cv::_InputArray *src, cv::_OutputArray *dst,
 {
     return cv::threshold(*src, *dst, thresh, maxval, type);
 }
-CVAPI(void) imgproc_adaptiveThreshold(cv::_InputArray *src, cv::_OutputArray *dst,
+CV_EXTERN_C CV_EXPORTS void //CV_CDECL
+//CVAPI(void)
+ imgproc_adaptiveThreshold(cv::_InputArray *src, cv::_OutputArray *dst,
     double maxValue, int adaptiveMethod,
-    int thresholdType, int blockSize, double C)
+    int thresholdType, int blockSize, double C, int * exception)
 {
-    cv::adaptiveThreshold(*src, *dst, maxValue, adaptiveMethod, thresholdType, blockSize, C);
+    try
+    {
+        std::cout <<"Call adaptive threshold." << std::endl;
+        cv::adaptiveThreshold(*src, *dst, maxValue, adaptiveMethod, thresholdType, blockSize, C);
+    }
+    catch(const std::exception&)
+    {
+        std::cout <<"Catched exception in c file." << std::endl;
+    }
 }
 
 CVAPI(void) imgproc_pyrDown(cv::_InputArray *src, cv::_OutputArray *dst, CvSize dstsize, int borderType)
