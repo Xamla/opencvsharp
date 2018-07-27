@@ -8,6 +8,10 @@ namespace OpenCvSharp
     static partial class NativeMethods
     {
         [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern IntPtr core_ExceptionDesc_new();
+        public static extern IntPtr core_exceptionDesc_new();
+    
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern bool core_exceptionHappened(IntPtr exc);
+    
     }
 }

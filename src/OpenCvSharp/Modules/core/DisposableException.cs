@@ -9,6 +9,7 @@ namespace OpenCvSharp
     /// </summary>
     public class DisposableException : DisposableObject
     {
+
         /// <summary>
         /// Contains the exception data of catched opencv Exception
         /// </summary>
@@ -17,8 +18,34 @@ namespace OpenCvSharp
         /// <summary>
         /// Just initializes the IntPtr
         /// </summary>
-        public DisposableException(){
-            ptr = NativeMethods.core_ExceptionDesc_new();
+        public DisposableException()
+        {
+            ptr = NativeMethods.core_exceptionDesc_new();
         }
+        /// <summary>
+        /// Get Description of Exception
+        /// </summary>
+        public string getDescription()
+        {
+            //TODO implement this properly
+            return "none";
+                
+        }
+        /// <summary>
+        /// Get Name/Type of Exception 
+        /// </summary>
+        public string getName()
+        {
+            //TODO implement this properly
+            return "none";
+        }
+        /// <summary>
+        /// Check if an exception happened
+        /// </summary>
+        public bool exceptionHappened()
+        {
+            return NativeMethods.core_exceptionHappened(ptr);
+        }
+
     }
 }

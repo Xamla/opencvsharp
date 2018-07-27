@@ -330,11 +330,12 @@ CV_EXTERN_C CV_EXPORTS void //CV_CDECL
     {
         std::cout <<"Call adaptive threshold." << std::endl;
         cv::adaptiveThreshold(*src, *dst, maxValue, adaptiveMethod, thresholdType, blockSize, C);
+        exception->ifException = false;
     }
     catch(const std::exception&)
     {
         std::cout <<"Catched exception in c file." << std::endl;
-        
+        exception->ifException = true;   
     }
 }
 

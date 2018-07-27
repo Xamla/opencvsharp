@@ -1621,6 +1621,11 @@ namespace OpenCvSharp
             DisposableException exc = new DisposableException();
             
             NativeMethods.imgproc_adaptiveThreshold(src.CvPtr, dst.CvPtr, maxValue, (int)adaptiveMethod, (int)thresholdType, blockSize, c, exc.ptr);
+
+            if(exc.exceptionHappened())
+                Console.WriteLine("THERE WAS AN EXCEPTION");
+            else
+                Console.WriteLine("THERE WAS NO EXCEPTION");        
             GC.KeepAlive(exc);
             GC.KeepAlive(src);
             GC.KeepAlive(dst);
