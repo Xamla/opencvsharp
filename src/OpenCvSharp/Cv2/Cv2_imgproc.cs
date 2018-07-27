@@ -1618,9 +1618,10 @@ namespace OpenCvSharp
                 throw new ArgumentNullException(nameof(dst));
             src.ThrowIfDisposed();
             dst.ThrowIfNotReady();
-           // DisposableException exception;
-            int exception = 0;
-            NativeMethods.imgproc_adaptiveThreshold(src.CvPtr, dst.CvPtr, maxValue, (int)adaptiveMethod, (int)thresholdType, blockSize, c, exception);
+            DisposableException exc = new DisposableException();
+            
+            NativeMethods.imgproc_adaptiveThreshold(src.CvPtr, dst.CvPtr, maxValue, (int)adaptiveMethod, (int)thresholdType, blockSize, c, exc.ptr);
+            GC.KeepAlive(exc);
             GC.KeepAlive(src);
             GC.KeepAlive(dst);
             dst.Fix();

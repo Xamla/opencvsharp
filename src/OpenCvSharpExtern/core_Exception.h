@@ -1,18 +1,11 @@
-#include <string>
+#ifndef _CPP_CORE_EXCEPTION_H_
+#define _CPP_CORE_EXCEPTION_H_
 
-class ExceptionDesc
-{
-    public:
-        ExceptionDesc() = default;
-    
-    std::string exceptionName;
-    std::string exceptionMessage;
-    bool ifException;
-
-};
-
+#include "core_ExceptionDesc.h"
 
 CVAPI(ExceptionDesc*) core_ExceptionDesc_new()
 {
     return new ExceptionDesc();
 }
+
+#endif //_CPP_CORE_EXCEPTION_H_

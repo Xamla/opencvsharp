@@ -2,6 +2,7 @@
 #define _CPP_IMGPROC_H_
 
 #include "include_opencv.h"
+#include "core_ExceptionDesc.h"
 
 // ReSharper disable CppNonInlineFunctionDefinitionInHeaderFile
 
@@ -323,7 +324,7 @@ CV_EXTERN_C CV_EXPORTS void //CV_CDECL
 //CVAPI(void)
  imgproc_adaptiveThreshold(cv::_InputArray *src, cv::_OutputArray *dst,
     double maxValue, int adaptiveMethod,
-    int thresholdType, int blockSize, double C, int * exception)
+    int thresholdType, int blockSize, double C, ExceptionDesc * exception)
 {
     try
     {
@@ -333,6 +334,7 @@ CV_EXTERN_C CV_EXPORTS void //CV_CDECL
     catch(const std::exception&)
     {
         std::cout <<"Catched exception in c file." << std::endl;
+        
     }
 }
 
