@@ -41,6 +41,10 @@ static int p(T obj, const std::string &caption = "MessageBox")
 #endif
 
 
+#ifndef ESC_SAVE
+#  define ESC_SAVE(function) try{function}catch (const std::exception& e) {}
+#endif
+
 
 static cv::_InputArray entity(cv::_InputArray *obj)
 {
