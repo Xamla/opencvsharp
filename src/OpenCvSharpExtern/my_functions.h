@@ -44,7 +44,7 @@ static int p(T obj, const std::string &caption = "MessageBox")
 // code used by ESC_SAVE should always be wrapped in parentheses 
 #define UNPACK( ... ) __VA_ARGS__
 #ifndef EXC_SAFE
-#  define EXC_SAFE(function) try{ UNPACK function }catch (const std::exception& e) { Console.WriteLine("EXCEPTION catched at native code"); }
+#  define EXC_SAFE(function) try{ UNPACK function }catch (const std::exception& e) { }
 #endif
 
 
