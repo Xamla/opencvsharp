@@ -40,9 +40,11 @@ static int p(T obj, const std::string &caption = "MessageBox")
 #  define CVAPI(rettype) CV_EXTERN_C CV_EXPORTS rettype CV_CDECL
 #endif
 
-
+// Take into account that there can be commas in the code
+// code used by ESC_SAVE should always be wrapped in parentheses 
+#define UNPACK( ... ) __VA_ARGS__
 #ifndef ESC_SAVE
-#  define ESC_SAVE(function) try{function}catch (const std::exception& e) {}
+#  define ESC_SAVE(function) try{ UNPACK function }catch (const std::exception& e) {}
 #endif
 
 
