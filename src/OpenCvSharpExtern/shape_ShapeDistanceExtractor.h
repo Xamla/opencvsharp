@@ -7,7 +7,9 @@
 CVAPI(float) shape_ShapeDistanceExtractor_computeDistance(
     cv::ShapeDistanceExtractor *obj, cv::_InputArray *contour1, cv::_InputArray *contour2)
 {
-    return obj->computeDistance(*contour1, *contour2);
+    EXC_SAFE((
+        return obj->computeDistance(*contour1, *contour2);
+    ))
 }
 
 #pragma region ShapeContextDistanceExtractor
@@ -15,156 +17,213 @@ CVAPI(float) shape_ShapeDistanceExtractor_computeDistance(
 CVAPI(void) shape_Ptr_ShapeContextDistanceExtractor_delete(
     cv::Ptr<cv::ShapeContextDistanceExtractor> *obj)
 {
-    delete obj;
+    EXC_SAFE((
+        delete obj;
+    ))
 }
 CVAPI(cv::ShapeContextDistanceExtractor*) shape_Ptr_ShapeContextDistanceExtractor_get(
     cv::Ptr<cv::ShapeContextDistanceExtractor> *obj)
 {
-    return obj->get();
+    EXC_SAFE((
+        return obj->get();
+    ))
 }
 
 CVAPI(void) shape_ShapeContextDistanceExtractor_setAngularBins(
     cv::ShapeContextDistanceExtractor *obj, int val)
 {
-    obj->setAngularBins(val);
+    EXC_SAFE((
+        obj->setAngularBins(val);
+    ))
 }
 CVAPI(int) shape_ShapeContextDistanceExtractor_getAngularBins(
     cv::ShapeContextDistanceExtractor *obj)
 {
-    return obj->getAngularBins();
+    EXC_SAFE((
+        return obj->getAngularBins();
+    ))
 }
 
 CVAPI(void) shape_ShapeContextDistanceExtractor_setRadialBins(
     cv::ShapeContextDistanceExtractor *obj, int val)
 {
-    obj->setRadialBins(val);
+    EXC_SAFE((
+        obj->setRadialBins(val);
+    ))
 }
 CVAPI(int) shape_ShapeContextDistanceExtractor_getRadialBins(
     cv::ShapeContextDistanceExtractor *obj)
 {
-    return obj->getRadialBins();
+    EXC_SAFE((
+        return obj->getRadialBins();
+    ))
 }
 
 CVAPI(void) shape_ShapeContextDistanceExtractor_setInnerRadius(
     cv::ShapeContextDistanceExtractor *obj, float val)
 {
-    obj->setInnerRadius(val);
+    EXC_SAFE((
+        obj->setInnerRadius(val);
+    ))
 }
 CVAPI(float) shape_ShapeContextDistanceExtractor_getInnerRadius(
     cv::ShapeContextDistanceExtractor *obj)
 {
-    return obj->getInnerRadius();
+    EXC_SAFE((
+        return obj->getInnerRadius();
+    ))
 }
 
 CVAPI(void) shape_ShapeContextDistanceExtractor_setOuterRadius(
     cv::ShapeContextDistanceExtractor *obj, float val)
 {
-    obj->setOuterRadius(val);
+    EXC_SAFE((
+        obj->setOuterRadius(val);
+    ))
 }
 CVAPI(float) shape_ShapeContextDistanceExtractor_getOuterRadius(
     cv::ShapeContextDistanceExtractor *obj)
 {
-    return obj->getOuterRadius();
+    EXC_SAFE((
+        return obj->getOuterRadius();
+    ))
 }
 
 CVAPI(void) shape_ShapeContextDistanceExtractor_setRotationInvariant(
     cv::ShapeContextDistanceExtractor *obj, int val)
 {
-    obj->setRotationInvariant(val != 0);
+    EXC_SAFE((
+        obj->setRotationInvariant(val != 0);
+    ))
 }
 CVAPI(int) shape_ShapeContextDistanceExtractor_getRotationInvariant(
     cv::ShapeContextDistanceExtractor *obj)
 {
-    return obj->getRotationInvariant() ? 1 : 0;
+    EXC_SAFE((
+        return obj->getRotationInvariant() ? 1 : 0;
+    ))
 }
 
 CVAPI(void) shape_ShapeContextDistanceExtractor_setShapeContextWeight(
     cv::ShapeContextDistanceExtractor *obj, float val)
 {
-    obj->setShapeContextWeight(val);
+    EXC_SAFE((
+        obj->setShapeContextWeight(val);
+    ))
 }
 CVAPI(float) shape_ShapeContextDistanceExtractor_getShapeContextWeight(
     cv::ShapeContextDistanceExtractor *obj)
 {
-    return obj->getShapeContextWeight();
+    EXC_SAFE((
+        return obj->getShapeContextWeight();
+    ))
 }
 
 CVAPI(void) shape_ShapeContextDistanceExtractor_setImageAppearanceWeight(
     cv::ShapeContextDistanceExtractor *obj, float val)
 {
-    obj->setImageAppearanceWeight(val);
+    EXC_SAFE((
+        obj->setImageAppearanceWeight(val);
+    ))
 }
 CVAPI(float) shape_ShapeContextDistanceExtractor_getImageAppearanceWeight(
     cv::ShapeContextDistanceExtractor *obj)
 {
-    return obj->getImageAppearanceWeight();
+    EXC_SAFE((
+        return obj->getImageAppearanceWeight();
+    ))
 }
 
 CVAPI(void) shape_ShapeContextDistanceExtractor_setBendingEnergyWeight(
     cv::ShapeContextDistanceExtractor *obj, float val)
 {
-    obj->setBendingEnergyWeight(val);
+    EXC_SAFE((
+        obj->setBendingEnergyWeight(val);
+    ))
 }
 CVAPI(float) shape_ShapeContextDistanceExtractor_getBendingEnergyWeight(
     cv::ShapeContextDistanceExtractor *obj)
 {
-    return obj->getBendingEnergyWeight();
+    EXC_SAFE((
+        return obj->getBendingEnergyWeight();
+    ))
 }
 
 CVAPI(void) shape_ShapeContextDistanceExtractor_setImages(
     cv::ShapeContextDistanceExtractor *obj, cv::_InputArray *image1, cv::_InputArray *image2)
 {
-    obj->setImages(*image1, *image2);
+    EXC_SAFE((
+        obj->setImages(*image1, *image2);
+    ))
 }
 CVAPI(void) shape_ShapeContextDistanceExtractor_getImages(
     cv::ShapeContextDistanceExtractor *obj, cv::_OutputArray *image1, cv::_OutputArray *image2)
 {
-    obj->getImages(*image1, *image2);
+    EXC_SAFE((
+        obj->getImages(*image1, *image2);
+    ))
 }
 
 CVAPI(void) shape_ShapeContextDistanceExtractor_setIterations(
     cv::ShapeContextDistanceExtractor *obj, int val)
 {
-    obj->setIterations(val);
+    EXC_SAFE((
+        obj->setIterations(val);
+    ))
 }
 CVAPI(int) shape_ShapeContextDistanceExtractor_getIterations(
     cv::ShapeContextDistanceExtractor *obj)
 {
-    return obj->getIterations();
+    EXC_SAFE((
+        return obj->getIterations();
+    ))
 }
 
 /*
 CVAPI(void) shape_ShapeContextDistanceExtractor_setCostExtractor(
     cv::ShapeContextDistanceExtractor *obj, Ptr<HistogramCostExtractor> comparer)
 {
-
+    EXC_SAFE((
+    
+    ))
 }
 CVAPI(Ptr<HistogramCostExtractor>) shape_ShapeContextDistanceExtractor_getCostExtractor(
     cv::ShapeContextDistanceExtractor *obj)
 {
-
+    EXC_SAFE((
+    
+    ))
 }*/
 
 CVAPI(void) shape_ShapeContextDistanceExtractor_setStdDev(
     cv::ShapeContextDistanceExtractor *obj, float val)
 {
-    obj->setStdDev(val);
+    EXC_SAFE((
+        obj->setStdDev(val);
+    ))
 }
 CVAPI(float) shape_ShapeContextDistanceExtractor_getStdDev(
     cv::ShapeContextDistanceExtractor *obj)
 {
-    return obj->getStdDev();
+    EXC_SAFE((
+        return obj->getStdDev();
+    ))
 }
 
 /*
 CVAPI(void) shape_ShapeContextDistanceExtractor_setTransformAlgorithm(
     cv::ShapeContextDistanceExtractor *obj, Ptr<ShapeTransformer> transformer)
 {
+    EXC_SAFE((
+    
+    ))
 }
 CVAPI(Ptr<ShapeTransformer>) shape_ShapeContextDistanceExtractor_getTransformAlgorithm(
     cv::ShapeContextDistanceExtractor *obj)
 {
-
+    EXC_SAFE((
+    
+    ))
 }
 */
 
@@ -174,9 +233,11 @@ CVAPI(cv::Ptr<cv::ShapeContextDistanceExtractor>*) shape_createShapeContextDista
     const Ptr<HistogramCostExtractor> &comparer = createChiHistogramCostExtractor(),
     const Ptr<ShapeTransformer> &transformer = createThinPlateSplineShapeTransformer()*/)
 {
-    cv::Ptr<cv::ShapeContextDistanceExtractor> p = cv::createShapeContextDistanceExtractor(
-        nAngularBins, nRadialBins, innerRadius, outerRadius, iterations);
-    return new cv::Ptr<cv::ShapeContextDistanceExtractor>(p);
+    EXC_SAFE((
+        cv::Ptr<cv::ShapeContextDistanceExtractor> p = cv::createShapeContextDistanceExtractor(
+            nAngularBins, nRadialBins, innerRadius, outerRadius, iterations);
+        return new cv::Ptr<cv::ShapeContextDistanceExtractor>(p);
+    ))
 }
 
 #pragma endregion
@@ -186,44 +247,58 @@ CVAPI(cv::Ptr<cv::ShapeContextDistanceExtractor>*) shape_createShapeContextDista
 CVAPI(void) shape_Ptr_HausdorffDistanceExtractor_delete(
     cv::Ptr<cv::HausdorffDistanceExtractor> *obj)
 {
-    delete obj;
+    EXC_SAFE((
+        delete obj;
+    ))
 }
 CVAPI(cv::HausdorffDistanceExtractor*) shape_Ptr_HausdorffDistanceExtractor_get(
     cv::Ptr<cv::HausdorffDistanceExtractor> *obj)
 {
-    return obj->get();
+    EXC_SAFE((
+        return obj->get();
+    ))
 }
 
 
 CVAPI(void) shape_HausdorffDistanceExtractor_setDistanceFlag(
     cv::HausdorffDistanceExtractor *obj, int val)
 {
-    obj->setDistanceFlag(val);
+    EXC_SAFE((
+        obj->setDistanceFlag(val);
+    ))
 }
 CVAPI(int) shape_HausdorffDistanceExtractor_getDistanceFlag(
     cv::HausdorffDistanceExtractor *obj)
 {
-    return obj->getDistanceFlag();
+    EXC_SAFE((
+        return obj->getDistanceFlag();
+    ))
 }
 
 CVAPI(void) shape_HausdorffDistanceExtractor_setRankProportion(
     cv::HausdorffDistanceExtractor *obj, float val)
 {
-    obj->setRankProportion(val);
+    EXC_SAFE((
+        obj->setRankProportion(val);
+    ))
 }
 CVAPI(float) shape_HausdorffDistanceExtractor_getRankProportion(
     cv::HausdorffDistanceExtractor *obj)
 {
-    return obj->getRankProportion();
+    EXC_SAFE((
+        return obj->getRankProportion();
+    ))
 }
 
 
 CVAPI(cv::Ptr<cv::HausdorffDistanceExtractor>*) shape_createHausdorffDistanceExtractor(
     int distanceFlag, float rankProp)
 {
-    cv::Ptr<cv::HausdorffDistanceExtractor> p = cv::createHausdorffDistanceExtractor(
-        distanceFlag, rankProp);
-    return new cv::Ptr<cv::HausdorffDistanceExtractor>(p);
+    EXC_SAFE((
+        cv::Ptr<cv::HausdorffDistanceExtractor> p = cv::createHausdorffDistanceExtractor(
+            distanceFlag, rankProp);
+        return new cv::Ptr<cv::HausdorffDistanceExtractor>(p);
+    ))
 }
 
 #pragma endregion

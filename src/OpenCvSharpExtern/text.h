@@ -15,7 +15,9 @@ CVAPI(void) text_BaseOCR_run1(
 	std::vector<float>* component_confidences,
 	int component_level)
 {
-	obj->run(*image, *output_text, component_rects, component_texts, component_confidences, component_level);
+    EXC_SAFE((
+    	obj->run(*image, *output_text, component_rects, component_texts, component_confidences, component_level);
+    ))
 }
 
 CVAPI(void) text_BaseOCR_run2(
@@ -28,7 +30,9 @@ CVAPI(void) text_BaseOCR_run2(
 	std::vector<float>* component_confidences,
 	int component_level)
 {
-	obj->run(*image, *mask, *output_text, component_rects, component_texts, component_confidences, component_level);
+    EXC_SAFE((
+    	obj->run(*image, *mask, *output_text, component_rects, component_texts, component_confidences, component_level);
+    ))
 }
 
 // OCRTesseract
@@ -42,8 +46,10 @@ CVAPI(void) text_OCRTesseract_run1(
 	std::vector<float>* component_confidences,
 	int component_level)
 {
-	obj->run(*image, *output_text, component_rects, component_texts, component_confidences, component_level);
-
+    EXC_SAFE((
+    	obj->run(*image, *output_text, component_rects, component_texts, component_confidences, component_level);
+    
+    ))
 }
 
 CVAPI(void) text_OCRTesseract_run2(
@@ -56,7 +62,9 @@ CVAPI(void) text_OCRTesseract_run2(
 	std::vector<float>* component_confidences,
 	int component_level)
 {
-	obj->run(*image, *mask, *output_text, component_rects, component_texts, component_confidences, component_level);
+    EXC_SAFE((
+    	obj->run(*image, *mask, *output_text, component_rects, component_texts, component_confidences, component_level);
+    ))
 }
 
 // aliases for scripting
@@ -67,8 +75,10 @@ CVAPI(void) text_OCRTesseract_run3(
 	int component_level, 
 	std::string *dst)
 {
-	cv::String result = obj->run(*image, min_confidence, component_level);
-	dst->assign(result);
+    EXC_SAFE((
+    	cv::String result = obj->run(*image, min_confidence, component_level);
+    	dst->assign(result);
+    ))
 }
 
 CVAPI(void) text_OCRTesseract_run4(
@@ -79,15 +89,19 @@ CVAPI(void) text_OCRTesseract_run4(
 	int component_level,
 	std::string *dst)
 {
-	cv::String result = obj->run(*image, *mask, min_confidence, component_level);
-	dst->assign(result);
+    EXC_SAFE((
+    	cv::String result = obj->run(*image, *mask, min_confidence, component_level);
+    	dst->assign(result);
+    ))
 }
 
 CVAPI(void) text_OCRTesseract_setWhiteList(
 	OCRTesseract *obj,
 	const char *char_whitelist)
 {
-	obj->setWhiteList(char_whitelist);
+    EXC_SAFE((
+    	obj->setWhiteList(char_whitelist);
+    ))
 }
 
 CVAPI(cv::Ptr<OCRTesseract>*) text_OCRTesseract_create(
@@ -97,20 +111,26 @@ CVAPI(cv::Ptr<OCRTesseract>*) text_OCRTesseract_create(
 	int oem, 
 	int psmode)
 {
-	cv::Ptr<OCRTesseract> result = OCRTesseract::create(datapath, language, char_whitelist, oem, psmode);
-	return clone(result);
+    EXC_SAFE((
+    	cv::Ptr<OCRTesseract> result = OCRTesseract::create(datapath, language, char_whitelist, oem, psmode);
+    	return clone(result);
+    ))
 }
 
 CVAPI(void) text_Ptr_OCRTesseract_delete(
     cv::Ptr<OCRTesseract> *obj)
 {
-    delete obj;
+    EXC_SAFE((
+        delete obj;
+    ))
 }
 
 CVAPI(OCRTesseract*) text_OCRTesseract_get(
     cv::Ptr<OCRTesseract> *obj)
 {
-    return obj->get();
+    EXC_SAFE((
+        return obj->get();
+    ))
 }
 
 #endif

@@ -6,49 +6,67 @@
 
 CVAPI(cv::Ptr<cv::CLAHE>*) imgproc_createCLAHE(double clipLimit, MyCvSize tileGridSize)
 {
-    cv::Ptr<cv::CLAHE> ret = cv::createCLAHE(clipLimit, cpp(tileGridSize));
-    return clone(ret);
+    EXC_SAFE((
+        cv::Ptr<cv::CLAHE> ret = cv::createCLAHE(clipLimit, cpp(tileGridSize));
+        return clone(ret);
+    ))
 }
 
 CVAPI(void) imgproc_Ptr_CLAHE_delete(cv::Ptr<cv::CLAHE> *obj)
 {
-    delete obj;
+    EXC_SAFE((
+        delete obj;
+    ))
 }
 
 CVAPI(cv::CLAHE*) imgproc_Ptr_CLAHE_get(cv::Ptr<cv::CLAHE> *obj)
 {
-    return obj->get();
+    EXC_SAFE((
+        return obj->get();
+    ))
 }
 
 
 CVAPI(void) imgproc_CLAHE_apply(cv::CLAHE *obj, cv::_InputArray *src, cv::_OutputArray *dst)
 {
-    obj->apply(*src, *dst);
+    EXC_SAFE((
+        obj->apply(*src, *dst);
+    ))
 }
 
 CVAPI(void) imgproc_CLAHE_setClipLimit(cv::CLAHE *obj, double clipLimit)
 {
-    obj->setClipLimit(clipLimit);
+    EXC_SAFE((
+        obj->setClipLimit(clipLimit);
+    ))
 }
 
 CVAPI(double) imgproc_CLAHE_getClipLimit(cv::CLAHE *obj)
 {
-    return obj->getClipLimit();
+    EXC_SAFE((
+        return obj->getClipLimit();
+    ))
 }
 
 CVAPI(void) imgproc_CLAHE_setTilesGridSize(cv::CLAHE *obj, MyCvSize tileGridSize)
 {
-    obj->setTilesGridSize(cpp(tileGridSize));
+    EXC_SAFE((
+        obj->setTilesGridSize(cpp(tileGridSize));
+    ))
 }
 
 CVAPI(MyCvSize) imgproc_CLAHE_getTilesGridSize(cv::CLAHE *obj)
 {
-    return c(obj->getTilesGridSize());
+    EXC_SAFE((
+        return c(obj->getTilesGridSize());
+    ))
 }
 
 CVAPI(void) imgproc_CLAHE_collectGarbage(cv::CLAHE *obj)
 {
-    obj->collectGarbage();
+    EXC_SAFE((
+        obj->collectGarbage();
+    ))
 }
 
 #endif

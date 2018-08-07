@@ -10,17 +10,23 @@ using namespace cv::face;
 CVAPI(cv::Ptr<EigenFaceRecognizer>*) face_EigenFaceRecognizer_create(
 	const int numComponents, const double threshold)
 {
-	const auto r = EigenFaceRecognizer::create(numComponents, threshold);
-	return clone(r);
+    EXC_SAFE((
+    	const auto r = EigenFaceRecognizer::create(numComponents, threshold);
+    	return clone(r);
+    ))
 }
 
 CVAPI(EigenFaceRecognizer*) face_Ptr_EigenFaceRecognizer_get(cv::Ptr<EigenFaceRecognizer> *obj)
 {
-	return obj->get();
+    EXC_SAFE((
+    	return obj->get();
+    ))
 }
 CVAPI(void) face_Ptr_EigenFaceRecognizer_delete(cv::Ptr<EigenFaceRecognizer> *obj)
 {
-	delete obj;
+    EXC_SAFE((
+    	delete obj;
+    ))
 }
 
 #endif

@@ -10,17 +10,23 @@ using namespace cv::face;
 CVAPI(cv::Ptr<FisherFaceRecognizer>*) face_FisherFaceRecognizer_create(
 	const int numComponents, const double threshold)
 {
-	const auto r = FisherFaceRecognizer::create(numComponents, threshold);
-	return clone(r);
+    EXC_SAFE((
+    	const auto r = FisherFaceRecognizer::create(numComponents, threshold);
+    	return clone(r);
+    ))
 }
 
 CVAPI(FisherFaceRecognizer*) face_Ptr_FisherFaceRecognizer_get(cv::Ptr<FisherFaceRecognizer> *obj)
 {
-	return obj->get();
+    EXC_SAFE((
+    	return obj->get();
+    ))
 }
 CVAPI(void) face_Ptr_FisherFaceRecognizer_delete(cv::Ptr<FisherFaceRecognizer> *obj)
 {
-	delete obj;
+    EXC_SAFE((
+    	delete obj;
+    ))
 }
 
 #endif

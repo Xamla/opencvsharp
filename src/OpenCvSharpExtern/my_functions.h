@@ -40,8 +40,8 @@ static int p(T obj, const std::string &caption = "MessageBox")
 #  define CVAPI(rettype) CV_EXTERN_C CV_EXPORTS rettype CV_CDECL
 #endif
 
-// Take into account that there can be commas in the code
-// code used by ESC_SAVE should always be wrapped in parentheses 
+// Take into account that there can be commata in the code
+// code used by EXC_SAFE should always be wrapped in parentheses 
 #define UNPACK( ... ) __VA_ARGS__
 #ifndef EXC_SAFE
 #  define EXC_SAFE(function) try{ UNPACK function }catch (const std::exception& e) {  std::cout << "EXCEPTION catched at native code" << std::endl ; }

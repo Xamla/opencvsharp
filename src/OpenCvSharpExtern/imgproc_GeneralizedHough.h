@@ -8,68 +8,96 @@
 CVAPI(void) imgproc_GeneralizedHough_setTemplate1(
     cv::GeneralizedHough *obj, cv::_InputArray *templ, MyCvPoint templCenter)
 {
-    obj->setTemplate(*templ, cpp(templCenter));
+    EXC_SAFE((
+        obj->setTemplate(*templ, cpp(templCenter));
+    ))
 }
 CVAPI(void) imgproc_GeneralizedHough_setTemplate2(
     cv::GeneralizedHough *obj, cv::_InputArray *edges, cv::_InputArray *dx, cv::_InputArray *dy, MyCvPoint templCenter)
 {
-    obj->setTemplate(*edges, *dx, *dy, cpp(templCenter));
+    EXC_SAFE((
+        obj->setTemplate(*edges, *dx, *dy, cpp(templCenter));
+    ))
 }
 
 CVAPI(void) imgproc_GeneralizedHough_detect1(
     cv::GeneralizedHough *obj, cv::_InputArray *image, cv::_OutputArray *positions, cv::_OutputArray *votes)
 {
-    obj->detect(*image, *positions, entity(votes));
+    EXC_SAFE((
+        obj->detect(*image, *positions, entity(votes));
+    ))
 }
 CVAPI(void) imgproc_GeneralizedHough_detect2(
     cv::GeneralizedHough *obj, cv::_InputArray *edges, cv::_InputArray *dx, cv::_InputArray *dy, cv::_OutputArray *positions, cv::_OutputArray *votes)
 {
-    obj->detect(*edges, *dx, *dy, *positions, entity(votes));
+    EXC_SAFE((
+        obj->detect(*edges, *dx, *dy, *positions, entity(votes));
+    ))
 }
 
 CVAPI(void) imgproc_GeneralizedHough_setCannyLowThresh(cv::GeneralizedHough *obj, int val)
 {
-    obj->setCannyLowThresh(val);
+    EXC_SAFE((
+        obj->setCannyLowThresh(val);
+    ))
 }
 CVAPI(int) imgproc_GeneralizedHough_getCannyLowThresh(cv::GeneralizedHough *obj)
 {
-    return obj->getCannyLowThresh();
+    EXC_SAFE((
+        return obj->getCannyLowThresh();
+    ))
 }
 
 CVAPI(void) imgproc_GeneralizedHough_setCannyHighThresh(cv::GeneralizedHough *obj, int val)
 {
-    obj->setCannyHighThresh(val);
+    EXC_SAFE((
+        obj->setCannyHighThresh(val);
+    ))
 }
 CVAPI(int) imgproc_GeneralizedHough_getCannyHighThresh(cv::GeneralizedHough *obj)
 {
-    return obj->getCannyHighThresh();
+    EXC_SAFE((
+        return obj->getCannyHighThresh();
+    ))
 }
 
 CVAPI(void) imgproc_GeneralizedHough_setMinDist(cv::GeneralizedHough *obj, double val)
 {
-    obj->setMinDist(val);
+    EXC_SAFE((
+        obj->setMinDist(val);
+    ))
 }
 CVAPI(double) imgproc_GeneralizedHough_getMinDist(cv::GeneralizedHough *obj)
 {
-    return obj->getMinDist();
+    EXC_SAFE((
+        return obj->getMinDist();
+    ))
 }
 
 CVAPI(void) imgproc_GeneralizedHough_setDp(cv::GeneralizedHough *obj, double val)
 {
-    obj->setDp(val);
+    EXC_SAFE((
+        obj->setDp(val);
+    ))
 }
 CVAPI(double) imgproc_GeneralizedHough_getDp(cv::GeneralizedHough *obj)
 {
-    return obj->getDp();
+    EXC_SAFE((
+        return obj->getDp();
+    ))
 }
 
 CVAPI(void) imgproc_GeneralizedHough_setMaxBufferSize(cv::GeneralizedHough *obj, int val)
 {
-    obj->setMaxBufferSize(val);
+    EXC_SAFE((
+        obj->setMaxBufferSize(val);
+    ))
 }
 CVAPI(int) imgproc_GeneralizedHough_getMaxBufferSize(cv::GeneralizedHough *obj)
 {
-    return obj->getMaxBufferSize();
+    EXC_SAFE((
+        return obj->getMaxBufferSize();
+    ))
 }
 
 
@@ -77,35 +105,49 @@ CVAPI(int) imgproc_GeneralizedHough_getMaxBufferSize(cv::GeneralizedHough *obj)
 
 CVAPI(cv::Ptr<cv::GeneralizedHoughBallard>*) imgproc_createGeneralizedHoughBallard()
 {
-    cv::Ptr<cv::GeneralizedHoughBallard> ptr = cv::createGeneralizedHoughBallard();
-    return new cv::Ptr<cv::GeneralizedHoughBallard>(ptr);
+    EXC_SAFE((
+        cv::Ptr<cv::GeneralizedHoughBallard> ptr = cv::createGeneralizedHoughBallard();
+        return new cv::Ptr<cv::GeneralizedHoughBallard>(ptr);
+    ))
 }
 CVAPI(cv::GeneralizedHoughBallard*) imgproc_Ptr_GeneralizedHoughBallard_get(
     cv::Ptr<cv::GeneralizedHoughBallard> *obj)
 {
-    return obj->get();
+    EXC_SAFE((
+        return obj->get();
+    ))
 }
 CVAPI(void) imgproc_Ptr_GeneralizedHoughBallard_delete(cv::Ptr<cv::GeneralizedHoughBallard> *obj)
 {
-    delete obj;
+    EXC_SAFE((
+        delete obj;
+    ))
 }
 
 CVAPI(void) imgproc_GeneralizedHoughBallard_setLevels(cv::GeneralizedHoughBallard *obj, int val)
 {
-    obj->setLevels(val);
+    EXC_SAFE((
+        obj->setLevels(val);
+    ))
 }
 CVAPI(int) imgproc_GeneralizedHoughBallard_getLevels(cv::GeneralizedHoughBallard *obj)
 {
-    return obj->getLevels();
+    EXC_SAFE((
+        return obj->getLevels();
+    ))
 }
 
 CVAPI(void) imgproc_GeneralizedHoughBallard_setVotesThreshold(cv::GeneralizedHoughBallard *obj, int val)
 {
-    obj->setVotesThreshold(val);
+    EXC_SAFE((
+        obj->setVotesThreshold(val);
+    ))
 }
 CVAPI(int) imgproc_GeneralizedHoughBallard_getVotesThreshold(cv::GeneralizedHoughBallard *obj)
 {
-    return obj->getVotesThreshold();
+    EXC_SAFE((
+        return obj->getVotesThreshold();
+    ))
 }
 
 
@@ -113,126 +155,180 @@ CVAPI(int) imgproc_GeneralizedHoughBallard_getVotesThreshold(cv::GeneralizedHoug
 
 CVAPI(cv::Ptr<cv::GeneralizedHoughGuil>*) imgproc_createGeneralizedHoughGuil()
 {
-    cv::Ptr<cv::GeneralizedHoughGuil> ptr = cv::createGeneralizedHoughGuil();
-    return new cv::Ptr<cv::GeneralizedHoughGuil>(ptr);
+    EXC_SAFE((
+        cv::Ptr<cv::GeneralizedHoughGuil> ptr = cv::createGeneralizedHoughGuil();
+        return new cv::Ptr<cv::GeneralizedHoughGuil>(ptr);
+    ))
 }
 CVAPI(cv::GeneralizedHoughGuil*) imgproc_Ptr_GeneralizedHoughGuil_get(
     cv::Ptr<cv::GeneralizedHoughGuil> *obj)
 {
-    return obj->get();
+    EXC_SAFE((
+        return obj->get();
+    ))
 }
 CVAPI(void) imgproc_Ptr_GeneralizedHoughGuil_delete(cv::Ptr<cv::GeneralizedHoughGuil> *obj)
 {
-    delete obj;
+    EXC_SAFE((
+        delete obj;
+    ))
 }
 
 
 CVAPI(void) imgproc_GeneralizedHoughGuil_setXi(cv::GeneralizedHoughGuil *obj, double val)
 {
-    obj->setXi(val);
+    EXC_SAFE((
+        obj->setXi(val);
+    ))
 }
 CVAPI(double) imgproc_GeneralizedHoughGuil_getXi(cv::GeneralizedHoughGuil *obj)
 {
-    return obj->getXi();
+    EXC_SAFE((
+        return obj->getXi();
+    ))
 }
 
 CVAPI(void) imgproc_GeneralizedHoughGuil_setLevels(cv::GeneralizedHoughGuil *obj, int val)
 {
-    obj->setLevels(val);
+    EXC_SAFE((
+        obj->setLevels(val);
+    ))
 }
 CVAPI(int) imgproc_GeneralizedHoughGuil_getLevels(cv::GeneralizedHoughGuil *obj)
 {
-    return obj->getLevels();
+    EXC_SAFE((
+        return obj->getLevels();
+    ))
 }
 
 CVAPI(void) imgproc_GeneralizedHoughGuil_setAngleEpsilon(cv::GeneralizedHoughGuil *obj, double val)
 {
-    obj->setAngleEpsilon(val);
+    EXC_SAFE((
+        obj->setAngleEpsilon(val);
+    ))
 }
 CVAPI(double) imgproc_GeneralizedHoughGuil_getAngleEpsilon(cv::GeneralizedHoughGuil *obj)
 {
-    return obj->getAngleEpsilon();
+    EXC_SAFE((
+        return obj->getAngleEpsilon();
+    ))
 }
 
 CVAPI(void) imgproc_GeneralizedHoughGuil_setMinAngle(cv::GeneralizedHoughGuil *obj, double val)
 {
-    obj->setMinAngle(val);
+    EXC_SAFE((
+        obj->setMinAngle(val);
+    ))
 }
 CVAPI(double) imgproc_GeneralizedHoughGuil_getMinAngle(cv::GeneralizedHoughGuil *obj)
 {
-    return obj->getMinAngle();
+    EXC_SAFE((
+        return obj->getMinAngle();
+    ))
 }
 
 CVAPI(void) imgproc_GeneralizedHoughGuil_setMaxAngle(cv::GeneralizedHoughGuil *obj, double val)
 {
-    obj->setMaxAngle(val);
+    EXC_SAFE((
+        obj->setMaxAngle(val);
+    ))
 }
 CVAPI(double) imgproc_GeneralizedHoughGuil_getMaxAngle(cv::GeneralizedHoughGuil *obj)
 {
-    return obj->getMaxAngle();
+    EXC_SAFE((
+        return obj->getMaxAngle();
+    ))
 }
 
 CVAPI(void) imgproc_GeneralizedHoughGuil_setAngleStep(cv::GeneralizedHoughGuil *obj, double val)
 {
-    obj->setAngleStep(val);
+    EXC_SAFE((
+        obj->setAngleStep(val);
+    ))
 }
 CVAPI(double) imgproc_GeneralizedHoughGuil_getAngleStep(cv::GeneralizedHoughGuil *obj)
 {
-    return obj->getAngleStep();
+    EXC_SAFE((
+        return obj->getAngleStep();
+    ))
 }
 
 CVAPI(void) imgproc_GeneralizedHoughGuil_setAngleThresh(cv::GeneralizedHoughGuil *obj, int val)
 {
-    obj->setAngleThresh(val);
+    EXC_SAFE((
+        obj->setAngleThresh(val);
+    ))
 }
 CVAPI(int) imgproc_GeneralizedHoughGuil_getAngleThresh(cv::GeneralizedHoughGuil *obj)
 {
-    return obj->getAngleThresh();
+    EXC_SAFE((
+        return obj->getAngleThresh();
+    ))
 }
 
 CVAPI(void) imgproc_GeneralizedHoughGuil_setMinScale(cv::GeneralizedHoughGuil *obj, double val)
 {
-    obj->setMinScale(val);
+    EXC_SAFE((
+        obj->setMinScale(val);
+    ))
 }
 CVAPI(double) imgproc_GeneralizedHoughGuil_getMinScale(cv::GeneralizedHoughGuil *obj)
 {
-    return obj->getMinScale();
+    EXC_SAFE((
+        return obj->getMinScale();
+    ))
 }
 
 CVAPI(void) imgproc_GeneralizedHoughGuil_setMaxScale(cv::GeneralizedHoughGuil *obj, double val)
 {
-    obj->setMaxScale(val);
+    EXC_SAFE((
+        obj->setMaxScale(val);
+    ))
 }
 CVAPI(double) imgproc_GeneralizedHoughGuil_getMaxScale(cv::GeneralizedHoughGuil *obj)
 {
-    return obj->getMaxScale();
+    EXC_SAFE((
+        return obj->getMaxScale();
+    ))
 }
 
 CVAPI(void) imgproc_GeneralizedHoughGuil_setScaleStep(cv::GeneralizedHoughGuil *obj, double val)
 {
-    obj->setScaleStep(val);
+    EXC_SAFE((
+        obj->setScaleStep(val);
+    ))
 }
 CVAPI(double) imgproc_GeneralizedHoughGuil_getScaleStep(cv::GeneralizedHoughGuil *obj)
 {
-    return obj->getScaleStep();
+    EXC_SAFE((
+        return obj->getScaleStep();
+    ))
 }
 
 CVAPI(void) imgproc_GeneralizedHoughGuil_setScaleThresh(cv::GeneralizedHoughGuil *obj, int val)
 {
-    obj->setScaleThresh(val);
+    EXC_SAFE((
+        obj->setScaleThresh(val);
+    ))
 }
 CVAPI(int) imgproc_GeneralizedHoughGuil_getScaleThresh(cv::GeneralizedHoughGuil *obj)
 {
-    return obj->getScaleThresh();
+    EXC_SAFE((
+        return obj->getScaleThresh();
+    ))
 }
 
 CVAPI(void) imgproc_GeneralizedHoughGuil_setPosThresh(cv::GeneralizedHoughGuil *obj, int val)
 {
-    obj->setPosThresh(val);
+    EXC_SAFE((
+        obj->setPosThresh(val);
+    ))
 }
 CVAPI(int) imgproc_GeneralizedHoughGuil_getPosThresh(cv::GeneralizedHoughGuil *obj)
 {
-    return obj->getPosThresh();
+    EXC_SAFE((
+        return obj->getPosThresh();
+    ))
 }
 
 #endif

@@ -12,7 +12,9 @@ CVAPI(void) optflow_calcOpticalFlowSF1(
     int averagingBlockSize,
     int maxFlow)
 {
-    calcOpticalFlowSF(*from, *to, *flow, layers, averagingBlockSize, maxFlow);
+    EXC_SAFE((
+        calcOpticalFlowSF(*from, *to, *flow, layers, averagingBlockSize, maxFlow);
+    ))
 }
 
 CVAPI(void) optflow_calcOpticalFlowSF2(
@@ -33,9 +35,11 @@ CVAPI(void) optflow_calcOpticalFlowSF2(
     double upscaleSigmaColor,
     double speedUpThr)
 {
-    calcOpticalFlowSF(*from, *to, *flow, layers, averagingBlockSize, maxFlow,
-        sigmaDist, sigmaColor, postprocessWindow, sigmaDistFix, sigmaColorFix,
-        occThr, upscaleAveragingRadius, upscaleSigmaDist, upscaleSigmaColor, speedUpThr);
+    EXC_SAFE((
+        calcOpticalFlowSF(*from, *to, *flow, layers, averagingBlockSize, maxFlow,
+            sigmaDist, sigmaColor, postprocessWindow, sigmaDistFix, sigmaColorFix,
+            occThr, upscaleAveragingRadius, upscaleSigmaDist, upscaleSigmaColor, speedUpThr);
+    ))
 }
 
 #endif

@@ -5,28 +5,38 @@
 
 CVAPI(void) core_Algorithm_write(cv::Algorithm *obj, cv::FileStorage *fs)
 {
-    obj->write(*fs);
+    EXC_SAFE((
+        obj->write(*fs);
+    ))
 }
 
 CVAPI(void) core_Algorithm_read(cv::Algorithm *obj, cv::FileNode *fn)
 {
-    obj->read(*fn);
+    EXC_SAFE((
+        obj->read(*fn);
+    ))
 }
 
 CVAPI(int) core_Algorithm_empty(cv::Algorithm *obj)
 {
-    return obj->empty() ? 1 : 0;
+    EXC_SAFE((
+        return obj->empty() ? 1 : 0;
+    ))
 }
 
 CVAPI(void) core_Algorithm_save(cv::Algorithm *obj, const char *filename)
 {
-    obj->save(filename);
+    EXC_SAFE((
+        obj->save(filename);
+    ))
 }
 
 CVAPI(void) core_Algorithm_getDefaultName(cv::Algorithm *obj, char *buf, int bufLength)
 {
-    cv::String str = obj->getDefaultName();
-    copyString(str, buf, bufLength);
+    EXC_SAFE((
+        cv::String str = obj->getDefaultName();
+        copyString(str, buf, bufLength);
+    ))
 }
 
 #endif
