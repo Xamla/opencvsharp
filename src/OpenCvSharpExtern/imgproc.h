@@ -385,10 +385,11 @@ CVAPI(void) imgproc_calcBackProject(cv::Mat **images, int nimages,
 }
 
 
-CVAPI(double) imgproc_compareHist1(cv::_InputArray *h1, cv::_InputArray *h2, int method)
+double imgproc_compareHist1(cv::_InputArray *h1, cv::_InputArray *h2, int method)
 {
     return cv::compareHist(*h1, *h2, method);
 }
+
 CVAPI(void) imgproc_equalizeHist(cv::_InputArray *src, cv::_OutputArray *dst)
 {
     cv::equalizeHist(*src, *dst);

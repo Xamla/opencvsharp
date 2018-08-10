@@ -8,6 +8,8 @@ namespace OpenCvSharp
     static partial class NativeMethodsExc
     {
 
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern bool imgproc_exc_compareHist1(ref double  ret , IntPtr h1, IntPtr h2, int method);
 
 
         [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]

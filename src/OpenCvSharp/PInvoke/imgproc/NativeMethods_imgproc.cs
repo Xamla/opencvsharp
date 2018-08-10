@@ -166,9 +166,6 @@ namespace OpenCvSharp
                 Console.WriteLine("Callback indicates noexception. ");
             if (isExc && callBackExc )  
                 throw new System.Exception(); //(status, funcName, errMsg, fileName, line);
-
-
-
         }
         
         
@@ -202,8 +199,37 @@ namespace OpenCvSharp
         public static extern void imgproc_calcBackProject(IntPtr[] images, int nimages,
                                                           int[] channels, IntPtr hist, IntPtr backProject,
                                                           IntPtr[] ranges, int uniform);
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern double imgproc_compareHist1(IntPtr h1, IntPtr h2, int method);
+
+
+
+
+
+
+
+        public static double imgproc_compareHist1(IntPtr h1, IntPtr h2, int method)
+        {
+            double ret = new double();
+            var isExc = NativeMethodsExc.imgproc_exc_compareHist1( ref ret, h1,  h2,  method);
+            Console.WriteLine(ret);
+            // could be refactored out into a function
+            if (isExc)
+                Console.WriteLine("Return value indicates exception. ");
+
+            else
+                Console.WriteLine("Return value indicates no exception. ");
+            var callBackExc = ExceptionHandler.checkForException;
+            if (callBackExc)
+                Console.WriteLine("Callback indicates exception. ");
+            else
+                Console.WriteLine("Callback indicates noexception. ");
+            if (isExc && callBackExc )  
+                throw new System.Exception(); //(status, funcName, errMsg, fileName, line);
+
+            return ret;
+
+        }
+
+
         [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern void imgproc_equalizeHist(IntPtr src, IntPtr dst);
 
