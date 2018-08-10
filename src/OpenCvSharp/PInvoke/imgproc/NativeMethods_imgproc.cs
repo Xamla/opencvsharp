@@ -106,8 +106,29 @@ namespace OpenCvSharp
         public static extern void imgproc_invertAffineTransform(IntPtr m, IntPtr im);
         [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern IntPtr imgproc_getPerspectiveTransform1(Point2f[] src, Point2f[] dst);
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
-        public static extern IntPtr imgproc_getPerspectiveTransform2(IntPtr src, IntPtr dst);
+
+
+    
+        public static IntPtr imgproc_getPerspectiveTransform2(IntPtr src, IntPtr dst)
+        {
+            IntPtr ret = new IntPtr();
+            var isExc = NativeMethodsExc.imgproc_exc_getPerspectiveTransform2(ret,  src,  dst);
+            // could be refactored out into a function
+            if (isExc)
+                Console.WriteLine("Return value indicates exception. ");
+            else
+                Console.WriteLine("Return value indicates no exception. ");
+            var callBackExc = ExceptionHandler.checkForException;
+            if (callBackExc)
+                Console.WriteLine("Callback indicates exception. ");
+            else
+                Console.WriteLine("Callback indicates noexception. ");
+            if (isExc && callBackExc )  
+                throw new System.Exception(); //(status, funcName, errMsg, fileName, line);
+            return ret;
+        }
+
+
         [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern IntPtr imgproc_getAffineTransform1(Point2f[] src, Point2f[] dst);
         [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]

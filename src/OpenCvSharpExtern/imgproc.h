@@ -385,7 +385,7 @@ CVAPI(void) imgproc_calcBackProject(cv::Mat **images, int nimages,
 }
 
 
-double imgproc_compareHist1(cv::_InputArray *h1, cv::_InputArray *h2, int method)
+CVAPI(double) imgproc_compareHist1(cv::_InputArray *h1, cv::_InputArray *h2, int method)
 {
     return cv::compareHist(*h1, *h2, method);
 }
