@@ -319,7 +319,8 @@ CVAPI(double) imgproc_threshold(cv::_InputArray *src, cv::_OutputArray *dst,
 {
     return cv::threshold(*src, *dst, thresh, maxval, type);
 }
-CVAPI(void) imgproc_adaptiveThreshold(cv::_InputArray *src, cv::_OutputArray *dst,
+
+void imgproc_adaptiveThreshold(cv::_InputArray *src, cv::_OutputArray *dst,
     double maxValue, int adaptiveMethod,
     int thresholdType, int blockSize, double C)
 {

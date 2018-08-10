@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net20;net40;net46</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks> <!-- ;net20;net40;net46-->
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>OpenCvSharp</AssemblyName>
