@@ -35,8 +35,7 @@ CVAPI_EXC(bool) imgproc_exc_getPerspectiveTransform2(cv::Mat* ret, cv::_InputArr
 {
     try
     {
-        cv::Mat* retVal = imgproc_getPerspectiveTransform2(src, dst);
-        ret = retVal;
+        ret = imgproc_getPerspectiveTransform2(src, dst);
         return false;
     }
     catch(std::exception e)

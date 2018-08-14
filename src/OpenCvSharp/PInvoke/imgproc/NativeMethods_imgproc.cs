@@ -108,7 +108,7 @@ namespace OpenCvSharp
         public static extern IntPtr imgproc_getPerspectiveTransform1(Point2f[] src, Point2f[] dst);
 
 
-    
+    /* 
         public static IntPtr imgproc_getPerspectiveTransform2(IntPtr src, IntPtr dst)
         {
             IntPtr ret = new IntPtr();
@@ -127,7 +127,25 @@ namespace OpenCvSharp
                 throw new System.Exception(); //(status, funcName, errMsg, fileName, line);
             return ret;
         }
+        
+*/
 
+        public static  System.IntPtr imgproc_getPerspectiveTransform2( System.IntPtr src ,  System.IntPtr dst )
+        {
+            System.IntPtr ret = new System.IntPtr();
+            bool isExc = NativeMethodsExc.imgproc_exc_getPerspectiveTransform2(ret, src, dst);
+            if(isExc)
+                handleException();
+            return ret;
+        }
+
+        public static void handleException()
+        {
+            // pop exception (bool value atm.) from callback funciton
+            var callBackExc = ExceptionHandler.checkForException;
+            if (callBackExc )  
+                throw new System.Exception(); //(status, funcName, errMsg, fileName, line);
+        }
 
         [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern IntPtr imgproc_getAffineTransform1(Point2f[] src, Point2f[] dst);

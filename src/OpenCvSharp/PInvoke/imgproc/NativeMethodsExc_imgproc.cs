@@ -10,10 +10,14 @@ namespace OpenCvSharp
 
 
 
-        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+       /* [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
         public static extern bool imgproc_exc_adaptiveThreshold(IntPtr src, IntPtr dst,
             double maxValue, int adaptiveMethod, int thresholdType, int blockSize, double c);
-        
+        */
+        // generated function
+        [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
+        public static extern System.Boolean imgproc_exc_adaptiveThreshold( System.IntPtr src ,  System.IntPtr dst ,  
+            System.Double maxValue ,  System.Int32 adaptiveMethod ,  System.Int32 thresholdType ,  System.Int32 blockSize ,  System.Double c );
 
 
         [DllImport(DllExtern, CallingConvention = CallingConvention.Cdecl, ExactSpelling = true)]
