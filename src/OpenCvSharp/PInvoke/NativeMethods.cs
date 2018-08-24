@@ -41,6 +41,15 @@ namespace OpenCvSharp
         {
             //"opencv_world",
         };
+        
+
+        // Called after every call over p/invoke
+        private static void handleException()
+        {
+            Console.WriteLine("Handle Exception");
+            // Check if there has been an exception
+            ExceptionHandler.throwPossibleException();
+        }
 
         public const string DllFfmpegX86 = "opencv_ffmpeg" + Version;
         public const string DllFfmpegX64 = DllFfmpegX86 + "_64";
@@ -66,8 +75,10 @@ namespace OpenCvSharp
         public static void LoadLibraries(IEnumerable<string> additionalPaths = null)
         {
             if (IsUnix())
+            {
+                ExceptionHandler.registerExceptionCallback();
                 return;
-
+            }
             string[] ap = additionalPaths == null ? new string[0] : EnumerableEx.ToArray(additionalPaths);
             List<string> runtimePaths = new List<string> (ap);
 #if DOTNET_FRAMEWORK
@@ -116,6 +127,7 @@ namespace OpenCvSharp
             try
             {
                 core_Mat_sizeof();
+                Console.WriteLine("Test invoke");
             }
             catch (DllNotFoundException e)
             {
