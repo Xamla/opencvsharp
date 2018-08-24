@@ -34,8 +34,6 @@ namespace OpenCvSharp
         {
             if(checkForException)
             {
-
-
                 throw new OpenCVException(  localStatus.Value, localFuncName.Value, localErrMsg.Value, 
                                             localFileName.Value, localLine.Value);
             }

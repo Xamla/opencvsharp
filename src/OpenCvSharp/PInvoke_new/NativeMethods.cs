@@ -127,6 +127,7 @@ namespace OpenCvSharp
             try
             {
                 core_Mat_sizeof();
+                Console.WriteLine("Test invoke");
             }
             catch (DllNotFoundException e)
             {
